@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { db } from "@/lib/firebase/config";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 
 const EnrollForm = () => {
@@ -17,7 +17,7 @@ const EnrollForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let newEnquiry = { firstName: firstNameRef.current.value, lastName: lastNameRef.current.value, email: emailRef.current.value, phone: phoneRef.current.value, qualification: qualification, phone: phoneRef.current.value, experience: experienceRef.current.value };
+        let newEnquiry = { firstName: firstNameRef.current.value, lastName: lastNameRef.current.value, email: emailRef.current.value, phone: phoneRef.current.value, qualification: qualification, phone: phoneRef.current.value, experience: experienceRef.current.value, time: Timestamp.now() };
         try {
             let colRef = collection(db, "enrollments_aws");
             await addDoc(colRef, newEnquiry);
