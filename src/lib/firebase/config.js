@@ -16,7 +16,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 let app;
-let fireStore;
+let db;
 let analytics;
 
 if (typeof window !== 'undefined') {
@@ -29,7 +29,7 @@ if (typeof window !== 'undefined') {
         analytics = getAnalytics(app); // Moved inside the check
     }
 
-    fireStore = getFirestore(app);
+    db = getFirestore(app);
 }
 
-export { app, fireStore, analytics }; // Export analytics if needed
+export { app, db, analytics }; // Export analytics if needed
