@@ -1,4 +1,17 @@
+"use client"
+
+import { useEffect } from "react";
+
 const ThankYou = () => {
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            setTimeout(() => {
+                window.location.href = "https://codercrafter.in";
+            }, 2000)
+        }
+    }, [])
+
     return <>
         <section id="page-container">
             <main id="main_section">
@@ -22,7 +35,11 @@ const ThankYou = () => {
                         <span style={{ fontWeight: 700, color: "red" }}>
                             Check you inbox for the bootcamp invitation!
                         </span>{" "}
-
+                        <br />
+                        <br />
+                        <span style={{ fontWeight: 700, color: "white", textShadow: "1px 0px 4px rgba(0, 0, 0, 0.7)" }}>
+                            Redirecting to CoderCrafter...
+                        </span>
                     </div>
                 </div>
             </main>

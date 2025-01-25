@@ -1,4 +1,5 @@
 "use client"
+import "./enrollform.css";
 
 import { useRef, useState } from "react";
 import { db } from "@/lib/firebase/config";
@@ -12,11 +13,13 @@ const EnrollForm = () => {
     const phoneRef = useRef(null);
     const [qualification, setQualification] = useState("");
     const experienceRef = useRef(null);
+    const [loading, setLoading] = useState(false);
 
     const router = useRouter();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         let newEnquiry = { firstName: firstNameRef.current.value, lastName: lastNameRef.current.value, email: emailRef.current.value, phone: phoneRef.current.value, qualification: qualification, phone: phoneRef.current.value, experience: experienceRef.current.value, time: Timestamp.now() };
         try {
             let colRef = collection(db, "enrollments_aws");
@@ -98,12 +101,18 @@ const EnrollForm = () => {
             </div>
             <div className="row">
                 <div className="col action_container">
-                    <button type="submit" className="btn btn-success">
-                        Enroll Now
+                    <button type="submit" className="btn btn-success" disabled={loading} >
+                        {loading ? "Enrolling..." : "Enroll Now"}
                     </button>
                 </div>
             </div>
         </form>
+
+        {loading && (
+            <div className="loading-overlay">
+                <div className="spinner"> <img src="/assets/images/Loading.gif" /> </div> {/* Add your spinner component or animation here */}
+            </div>
+        )}
     </>
 }
 
