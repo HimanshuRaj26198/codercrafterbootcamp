@@ -26,7 +26,7 @@ const ThankYou = () => {
                         <h1>AWS FREE BOOTCAMP</h1>
                     </div>
                     <div>
-                        <h3 style={{ textDecoration: "underline" }}>On: 25th January 2025</h3>
+                        <h3 style={{ textDecoration: "underline" }}>On: 26th January 2025</h3>
                     </div>
                     <div className="description">
                         <h2>
