@@ -1,9 +1,11 @@
 "use client"
 
+import { useParams } from "next/navigation";
 import { useEffect } from "react";
 
 const ThankYou = () => {
-
+    let { coursename } = useParams();
+    coursename = coursename == "mern" ? "MERN" : "AWS";
     useEffect(() => {
         if (typeof window !== "undefined") {
             setTimeout(() => {
@@ -23,10 +25,10 @@ const ThankYou = () => {
                         />
                     </div>
                     <div className="title">
-                        <h1>AWS FREE BOOTCAMP</h1>
+                        <h1>{coursename} FREE BOOTCAMP</h1>
                     </div>
                     <div>
-                        <h3 style={{ textDecoration: "underline" }}>On: 26th January 2025</h3>
+                        <h3 style={{ textDecoration: "underline" }}>On: 08 March 2025</h3>
                     </div>
                     <div className="description">
                         <h2>

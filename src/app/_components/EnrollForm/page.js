@@ -6,7 +6,7 @@ import { db } from "@/lib/firebase/config";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 
-const EnrollForm = () => {
+const EnrollForm = ({ coursename }) => {
     const firstNameRef = useRef(null);
     const lastNameRef = useRef(null);
     const emailRef = useRef(null);
@@ -17,19 +17,54 @@ const EnrollForm = () => {
 
     const router = useRouter();
 
+    function formatFirebaseTimestamp(firebaseTimestamp) {
+        // Convert Firebase Timestamp to JavaScript Date
+        const date = new Date(firebaseTimestamp.seconds * 1000);
+
+        // Format Date (MM/DD/YYYY hh:mm A)
+        const options = {
+            month: "2-digit",
+            day: "2-digit",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true,
+        };
+
+        return date.toLocaleString("en-US", options);
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        let newEnquiry = { firstName: firstNameRef.current.value, lastName: lastNameRef.current.value, email: emailRef.current.value, phone: phoneRef.current.value, qualification: qualification, phone: phoneRef.current.value, experience: experienceRef.current.value, time: Timestamp.now() };
+        let aws_sheetUrl = "https://script.google.com/macros/s/AKfycbwUG-Jyl0IHNUAa-m0aWPmNR8mKD3pg7nJT0fe-WjvZZb9TS1_SHdYsKELuBdY-wxY/exec";
+        let mern_sheetUrl = "https://script.google.com/macros/s/AKfycby37T0MrXFUobYHX9nr-ps7U8RCkeEGGW-AgCMbKh7ZBHKFBFowGF6kclAtXslu01Q/exec"
+        let newEnquiry = { firstName: firstNameRef.current.value, lastName: lastNameRef.current.value, email: emailRef.current.value, phone: phoneRef.current.value, qualification: qualification, phone: phoneRef.current.value, experience: experienceRef.current.value, time: formatFirebaseTimestamp(Timestamp.now()), course: coursename };
+        let sheetUrl = coursename == "mern" ? mern_sheetUrl : aws_sheetUrl
+        try {
+            let formData = new FormData();
+
+            Object.entries(newEnquiry).forEach(([key, value]) => {
+                formData.append(key, value);
+            });
+            let response = await fetch(sheetUrl, { method: "POST", body: formData });
+            console.log("Save Data to sheet");
+        } catch (err) {
+            console.log(err);
+        }
+
         try {
             let colRef = collection(db, "enrollments_aws");
             await addDoc(colRef, newEnquiry);
             await fetch("/api/send-invitation", { method: "POST", body: JSON.stringify(newEnquiry), headers: { 'Content-Type': "application/json" } })
-            router.push("thank-you");
+            router.push(`/${coursename}/thank-you`);
             console.log("Doc created and Invitation sent")
         } catch (err) {
             console.log(err)
         }
+
+
+
 
     }
 

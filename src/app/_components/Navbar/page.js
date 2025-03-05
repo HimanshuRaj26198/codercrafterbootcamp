@@ -1,3 +1,5 @@
+
+
 const Navbar = () => {
     return <>
         <header>
@@ -9,8 +11,8 @@ const Navbar = () => {
                     />
                 </a>
                 <span>
-                    <strong>Enquiry:</strong> <a href="tel:8920319125" >
-                        <strong>8920319125</strong>
+                    <strong>Enquiry:</strong> <a href="tel:8604846317" >
+                        <strong>8604846317</strong>
                     </a>
                 </span>
             </nav>

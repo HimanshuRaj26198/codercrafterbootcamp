@@ -1,0 +1,114 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+#page-container {}
+
+.title-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+}
+
+.title-container h1 {
+    font-size: 3rem;
+    text-shadow: 2px 1px 8px rgba(0, 0, 0, 0.8);
+}
+
+
+.title-container h2 {
+    font-size: 1rem;
+    text-decoration: underline;
+    text-decoration-color: rgb(242, 170, 27);
+    color: rgba(0, 0, 0, 0.8);
+}
+
+#main_section {
+    padding: 35px;
+    background-color: #2A4055;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%232A4055' cx='50' cy='0' r='50'/%3E%3Cg fill='%23274960' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%2321526a' cx='50' cy='100' r='50'/%3E%3Cg fill='%23175c74' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%2302667c' cx='50' cy='200' r='50'/%3E%3Cg fill='%23007083' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%23007a89' cx='50' cy='300' r='50'/%3E%3Cg fill='%2300848d' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%23008e8f' cx='50' cy='400' r='50'/%3E%3Cg fill='%23009890' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%2300a28f' cx='50' cy='500' r='50'/%3E%3Cg fill='%2320ab8d' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%233bb589' cx='50' cy='600' r='50'/%3E%3Cg fill='%2353be85' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%236ac67f' cx='50' cy='700' r='50'/%3E%3Cg fill='%2381ce7a' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%2399d674' cx='50' cy='800' r='50'/%3E%3Cg fill='%23b1dd6f' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%23cae36b' cx='50' cy='900' r='50'/%3E%3Cg fill='%23e4e868' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%23FFED68' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: contain;
+    /* background-image: url("/assets/images/aws-header1.png"); */
+    color: white;
+    box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.8);
+}
+
+.content_container {
+    /* background-image: url("/assets/images/aws-main-bg-transparent.png"); */
+    /* background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right; */
+    background-color: rgb(234, 223, 223);
+}
+
+.content_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    /* border-radius: 15px; */
+    /* background-image: url("/assets/images/mern_stack.png");
+    background-size: 180px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position: 80%; */
+    box-shadow: 0px 10px 4px 3px rgba(0, 0, 0, 0.8);
+
+}
+
+.infor_container {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    /* border-radius: 15px; */
+    /* background-image: url("/assets/images/mern_stack.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position: 80%; */
+    /* box-shadow: 0px 10px 4px 3px rgba(0, 0, 0, 0.8); */
+
+
+}
+
+.input_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_container {
+    padding: 10px;
+}
+
+
+
+.input_container label {
+    font-weight: 600;
+}
+
+.input_container input,
+select {
+    border: none;
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.8);
+    border-radius: 6px;
+    height: 24px;
+}
+
+.row {
+    gap: 10px !important;
+}
+
+.action_container {
+    width: 100%;
+    display: flex;
+    justify-content: center !important;
+}
