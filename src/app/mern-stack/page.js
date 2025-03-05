@@ -8,7 +8,7 @@ export const generateMetadata = () => {
         openGraph: {
             title: "Master MERN Stack Bootcamp - 08th March 2025 | Codercrafter",
             description: "Join our MERN Stack Bootcamp on 08th March 2025 and become a full-stack developer. Learn MongoDB, Express.js, React.js, and Node.js with hands-on projects and expert guidance. Register now!",
-            images: ["/asstes/images/mern_stack.png"],
+            images: ["/assetes/images/mern_stack.png"],
             url: "https://bootcamp.codercrafter.in/mern-stack",
             sitename: "CoderCrafter"
         },
